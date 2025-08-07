@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'ProfilePage.dart'; // Importing ProfilePage
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState(); 
 }
 
 class _HomePageState extends State<HomePage> {
@@ -20,9 +20,7 @@ class _HomePageState extends State<HomePage> {
     Center(
       child: Text('Ini halaman Cart'),
     ),
-    Center(
-      child: Text('Ini halaman Profile'),
-    ),
+    Profilepage(), // Assuming Profilepage is imported from ProfilePage.dart  
   ];
   @override
   Widget build(BuildContext context) {

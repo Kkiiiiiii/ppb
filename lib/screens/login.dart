@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             child: Form(
               key: _formkey,
-              child: Column(mainAxisSize: MainAxisSize.min, children: [
+              child: Column(mainAxisSize: MainAxisSize.min, children: [     
                 // const FlutterLogo(size: 100),  
                 Image.asset('assets/logo.png'),      
                 _gap(),
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                     if (value == null || value.isEmpty) {
                       return 'kata sandi tidak boleh kosong';
                     }
-                    if (value.length < 6) {
+                    if (value.length < 3) {
                       return 'kata sandi minimal 6 char';
                     }
                     return null;
