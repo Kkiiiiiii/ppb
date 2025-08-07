@@ -26,7 +26,8 @@ class _LoginPageState extends State<LoginPage> {
             child: Form(
               key: _formkey,
               child: Column(mainAxisSize: MainAxisSize.min, children: [
-                const FlutterLogo(size: 100),         
+                // const FlutterLogo(size: 100),  
+                Image.asset('assets/logo.png'),      
                 _gap(),
                 Text(
                   "Selamat datang",
@@ -66,6 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: 'Kata sandi',
                     hintText: 'Masukan kata sandi',
                     prefixIcon: const Icon(Icons.lock_outline_rounded),
+                    border: OutlineInputBorder(),
                     suffixIcon: IconButton(
                       icon: Icon(
                         _isPasswordVisible

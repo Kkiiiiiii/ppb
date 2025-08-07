@@ -43,11 +43,11 @@ class _HomePageState extends State<HomePage> {
         },
         destinations: const [
           NavigationDestination(
-              icon: Icon(Icons.home_outlined), label: 'Beranda'),
+              icon: Icon(Icons.home_outlined), label: 'Dashboard'),
           NavigationDestination(
-              icon: Icon(Icons.bookmark_border_outlined), label: 'Bookmark'),
+              icon: Icon(Icons.bookmark_border_outlined), label: 'Users'),
           NavigationDestination(
-              icon: Icon(Icons.shopping_bag_outlined), label: 'Cart'),
+              icon: Icon(Icons.shopping_bag_outlined), label: 'Payment'),
           NavigationDestination(
               icon: Icon(Icons.person_outlined), label: 'Profile'),
         ],
