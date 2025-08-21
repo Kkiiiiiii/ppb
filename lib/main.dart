@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_ppb/screens/ProfilePage.dart';
+// import 'package:tugas_ppb/screens/Dashboard.dart';
+import 'package:tugas_ppb/screens/login.dart';
 void main() {
   runApp(const MainApp());
 }
@@ -11,7 +12,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Profilepage(),
+      home: LoginPage(),
     );
   }
 }
