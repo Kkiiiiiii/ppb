@@ -26,15 +26,18 @@ class _LoginPageState extends State<LoginPage> {
             child: Form(
               key: _formkey,
               child: Column(mainAxisSize: MainAxisSize.min, children: [     
-                // const FlutterLogo(size: 100),  
-                Image.asset('assets/logo.png'),      
+                Image.asset('assets/logo.png', width: 300, height: 140,),      
                 _gap(),
                 Text(
-                  "Selamat datang",
+                  "\tSelamat datang",
                   style: Theme.of(
                     context,
-                  ).textTheme.titleMedium,
+                  ).textTheme.titleLarge,
                 ),
+                Text('Di Aplikasi IuranWarga',
+                style: Theme.of(
+                    context,
+                  ).textTheme.titleMedium,),
                 const SizedBox(
                   height: 8,
                 ),

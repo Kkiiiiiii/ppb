@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_ppb/screens/HomePage.dart';
+import 'package:tugas_ppb/screens/DetailPembayaran.dart';
+import 'package:tugas_ppb/screens/login.dart';
 class Profilepage extends StatelessWidget {
   const Profilepage({super.key});
 
@@ -14,20 +15,20 @@ class Profilepage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
              children: [
                 CircleAvatar(
-            radius: 50,
-            backgroundImage: AssetImage('assets/logo.png'),
+            radius: 40,
+            backgroundImage: AssetImage('assets/person.jpeg'),
            ),
              ]
             ),
             SizedBox(height: 20),
             Text(
               'Nama Pengguna',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 5),
              Text(
               'Warga',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 20),
             Row(
@@ -38,7 +39,7 @@ class Profilepage extends StatelessWidget {
             // ElevatedButton(onPressed: () {}, child: Text('Logout')),
             InkWell(
               onTap: () {
-               Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+               Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPay()));
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -49,32 +50,52 @@ class Profilepage extends StatelessWidget {
                 height: 50,
                 child: Center(
                   child: Text(
-                  'Follow',
+                  'Riwayat',
                   style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
             ),
             SizedBox(width: 20),
-             InkWell(
+            //  InkWell(
+            //   onTap: () {
+            //     Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPay()));
+            //   },
+            //    child: Container(
+            //     decoration: BoxDecoration(
+            //       color: Colors.purple,
+            //       borderRadius: BorderRadius.circular(8),
+            //     ),
+            //     width: 150,
+            //     height: 50,
+            //     child: Center(
+            //       child: Text(
+            //         'Pesan',
+            //         style: TextStyle(color: Colors.white),
+            //       ),
+            //     ),
+            //   ),
+            //  ),
+            //  const SizedBox(width: 20,),
+                InkWell(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage()),(route) => false);
               },
-               child: Container(
+              child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.purple,
+                  color: Colors.red,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 width: 150,
                 height: 50,
                 child: Center(
                   child: Text(
-                    'Pesan',
-                    style: TextStyle(color: Colors.white),
+                  'Logout',
+                  style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
-             ),
+            ),
               ],
               
             ),
@@ -87,43 +108,88 @@ class Profilepage extends StatelessWidget {
                   Column(
                    crossAxisAlignment: CrossAxisAlignment.start,
                    children: [
-                    Row(
-                      children: [
-                            Icon(Icons.email, color: Colors.grey[700]),
-                            SizedBox(width: 10),
-                            Text(
-                              'Email: www@gmail.com',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 25),
-                        Row(
-                          children: [
-                            Icon(Icons.location_on, color: Colors.grey[700]),
-                            SizedBox(width: 10),
-                            Text(
-                              'Address: 50 Cikunir Street',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 25),
-                        Row(
-                          children: [
-                            Icon(Icons.phone, color: Colors.grey[700]),
-                            SizedBox(width: 10),
-                            Text(
-                              'No HP: 896745763801',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                    Container(
+                      padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(        
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                      height: 50,
+                      width: 350,
+                      child: Row(
+                        children: [
+                              Icon(Icons.email, color: const Color.fromARGB(255, 255, 255, 255)),
+                              SizedBox(width: 10),
+                              Text(
+                                'Email: www@gmail.com',
+                                style: TextStyle(fontWeight: FontWeight.normal,color: Colors.white),
+                              ),
+                            ],
+                          ),
                     ),
-                   ]
+                        SizedBox(height: 25),
+                        Container(
+                          //  margin: EdgeInsets.only(bottom: 14),
+                           padding: EdgeInsets.all(10),
+                           decoration: BoxDecoration(        
+                           color: Colors.deepPurple,
+                           borderRadius: BorderRadius.circular(15),
+                        ),
+                        height: 50,
+                        width: 350,
+                          child: Row(
+                            children: [
+                              Icon(Icons.location_on, color: const Color.fromARGB(255, 255, 255, 255)),
+                              SizedBox(width: 10),
+                              Text(
+                                'Address: 50 Cikunir Street',
+                                style: TextStyle(fontWeight: FontWeight.normal,color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 25),
+                        Container(
+                          //  margin: EdgeInsets.only(bottom: 14),
+                           padding: EdgeInsets.all(10),
+                           decoration: BoxDecoration(        
+                           color: Colors.deepPurple,
+                           borderRadius: BorderRadius.circular(15),
+                       ),
+                         height: 50,
+                         width: 350,
+                          child: Row(
+                            children: [
+                              Icon(Icons.phone, color: const Color.fromARGB(255, 255, 255, 255)),
+                              SizedBox(width: 10),
+                              Text(
+                                'No HP: 896745763801',
+                                style: TextStyle(fontWeight: FontWeight.normal,color: Colors.white),
+                              ),
+                            ],
+                        ),
+                      ),
+                   ],
                    ),
                 ],
               ),
               ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+               InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPay()));
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.purple,
+                  ),
+                ),
+               )
+              ],
             ),
            ],
            ),

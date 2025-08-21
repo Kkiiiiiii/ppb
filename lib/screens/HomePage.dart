@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_ppb/screens/DetailPembayaran.dart';
 import 'ProfilePage.dart'; // Importing ProfilePage
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,19 +15,17 @@ class _HomePageState extends State<HomePage> {
     Center(
       child: Text('Ini halaman Beranda'),
     ),
-    Center(
-      child: Text('Ini halaman Bookmark'),
-    ),
+    DetailPay(),
     Center(
       child: Text('Ini halaman Cart'),
     ),
-    Profilepage(), // Assuming Profilepage is imported from ProfilePage.dart  
+    Profilepage(),  
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Aplikasi B'),
+        title: const Text('Aplikasi IuranWwarga'),
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: NavigationBar(
@@ -43,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           NavigationDestination(
               icon: Icon(Icons.home_outlined), label: 'Dashboard'),
           NavigationDestination(
-              icon: Icon(Icons.bookmark_border_outlined), label: 'Users'),
+              icon: Icon(Icons.history_rounded), label: 'Riwayat'),
           NavigationDestination(
               icon: Icon(Icons.shopping_bag_outlined), label: 'Payment'),
           NavigationDestination(
