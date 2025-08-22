@@ -26,7 +26,8 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Aplikasi IuranWarga'),
       ),
-      body: _pages[_selectedIndex],
+      body: 
+      _pages[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         animationDuration: const Duration(
           milliseconds: 300,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas_ppb/screens/ApiService.dart';
 import 'package:tugas_ppb/screens/HomePage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +11,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final Apiservice apiservice = Apiservice();
 
   bool _isPasswordVisible = false;
   @override
