@@ -13,7 +13,10 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final Apiservice apiservice = Apiservice();
 
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   bool _isPasswordVisible = false;
+  bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,47 +93,46 @@ class _LoginPageState extends State<LoginPage> {
                     if (value == null || value.isEmpty) {
                       return 'kata sandi tidak boleh kosong';
                     }
-                    if (value.length < 3) {
-                      return 'kata sandi minimal 6 char';
-                    }
                     return null;
                   },
                 ),
-                _gap(),
+                const SizedBox(height: 16,),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          4,
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      if (_formkey.currentState?.validate() ?? false) {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const HomePage(),
+                    onPressed: _isLoading ? null : () async{
+                      if
+                      (_formkey.currentState?.validate() ?? false){
+                        setState(() => _isLoading =
+                        true);
+                        try{
+                          String token = await apiservice.login(emailController.text.trim(),
+                           passwordController.text.trim()
+                          );
+                          if(!mounted) return;
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => HomePage(token: token, userId: 2)
                           ),
-                        );
-                      }
-                    }, child:  const Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Text(
-                        'Masuk',
-                        style:
-                        TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
-                        ),
-                      ),
-                ),
-                  )
-                ),    
+                          );
+                        } catch (e){
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())),
+                          );      
+                        } finally{
+                          setState(() => _isLoading = false);
+                        }
+                      };
+                    },
+                     child: _isLoading
+                    ? const CircularProgressIndicator(
+                      color: Colors.white,
+                    )
+                    :
+                    const Text('Masuk',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    )
+                    
+                    ),
+                )
+               
               ],
               ),
             ),
