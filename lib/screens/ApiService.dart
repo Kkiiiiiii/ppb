@@ -10,7 +10,7 @@ class Apiservice {
       Uri.parse("$Url/login"),
       headers: {
         'Content-Type': 'application/json',
-        'X-API-Key': 'reqres-free-v1', // ✅ Tambahkan ini untuk bypass error
+        'X-API-Key': 'reqres-free-v1', 
       },
       body: json.encode({
         "email": email,
@@ -52,7 +52,7 @@ Future<Map<String, dynamic>> getUserProfile(int id) async {
     Uri.parse("$Url/users/$id"),
     headers: {
       'Content-Type': 'application/json',
-      'X-API-Key': 'reqres-free-v1', // ✅ WAJIB untuk web
+      'X-API-Key': 'reqres-free-v1', 
     },
   );
 
